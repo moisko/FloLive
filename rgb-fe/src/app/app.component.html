@@ -1,15 +1,15 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
   <p>
-    <label>R:</label>
-    <input type="number" name="r" [(ngModel)]="rgbColor.r" required>
+    <label>Red intensity (between 0 and 255):</label>
+    <input type="range" name="r" [(ngModel)]="rgbColor.r" min="0" max="255" required>
   </p>
   <p>
-    <label>G:</label>
-    <input type="number" name="g" [(ngModel)]="rgbColor.g" required>
+    <label>Green intensity (between 0 and 255):</label>
+    <input type="range" name="g" [(ngModel)]="rgbColor.g" min="0" max="255" required>
   </p>
   <p>
-    <label>B:</label>
-    <input type="number" name="b" [(ngModel)]="rgbColor.b" required>
+    <label>Blue intensity (between 0 and 255):</label>
+    <input type="range" name="b" [(ngModel)]="rgbColor.b" min="0" max="255" required>
   </p>
   <p>
     <button type="submit" [disabled]="!f.valid">Submit</button>
