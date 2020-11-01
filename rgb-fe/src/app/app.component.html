@@ -1,19 +1,19 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
-  <p>
-    <label>Red intensity (between 0 and 255):</label>
-    <input type="range" name="r" [(ngModel)]="rgbColor.r" min="0" max="255" required>
-  </p>
-  <p>
-    <label>Green intensity (between 0 and 255):</label>
-    <input type="range" name="g" [(ngModel)]="rgbColor.g" min="0" max="255" required>
-  </p>
-  <p>
-    <label>Blue intensity (between 0 and 255):</label>
-    <input type="range" name="b" [(ngModel)]="rgbColor.b" min="0" max="255" required>
-  </p>
-  <p>
-    <button type="submit" [disabled]="!f.valid">Submit</button>
-  </p>
+  <div class="form-group">
+    <label for="rColor">Red intensity (between 0 and 255):</label>
+    <input id="rColor" type="range" class="form-control" name="r" [(ngModel)]="rgbColor.r" min="0" max="255" required>
+  </div>
+  <div class="form-group">
+    <label for="gColor">Green intensity (between 0 and 255):</label>
+    <input id="gColor" type="range" class="form-control" name="g" [(ngModel)]="rgbColor.g" min="0" max="255" required>
+  </div>
+  <div class="form-group">
+    <label for="bColor">Blue intensity (between 0 and 255):</label>
+    <input id="bColor" type="range" class="form-control" name="b" [(ngModel)]="rgbColor.b" min="0" max="255" required>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+  </div>
 </form>
 
 <div #rgbColorDiv>RGB color</div>
