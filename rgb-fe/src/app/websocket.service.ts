@@ -33,6 +33,10 @@ export class WebsocketService {
     if (this.stompClient !== null) {
       this.stompClient.disconnect();
     }
+
+    if (this.rgbColorChangeEvent !== null) {
+      this.rgbColorChangeEvent.unsubscribe();
+    }
   }
 
   public sendMessage(message: RgbColor): void {
