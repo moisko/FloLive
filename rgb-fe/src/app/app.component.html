@@ -1,0 +1,19 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <p>
+    <label>R:</label>
+    <input type="number" [(ngModel)]="rgbColor.r" name="r" #r="ngModel" required>
+  </p>
+  <p>
+    <label>G:</label>
+    <input type="number" [(ngModel)]="rgbColor.g" name="g" #g="ngModel" required>
+  </p>
+  <p>
+    <label>B:</label>
+    <input type="number" [(ngModel)]="rgbColor.b" name="b" #b="ngModel" required>
+  </p>
+  <p>
+    <button type="submit" [disabled]="!f.valid">Submit</button>
+  </p>
+</form>
+
+<div #rgbColorDiv>actual RGB color</div>

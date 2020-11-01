@@ -1,0 +1,7 @@
+CREATE TABLE rgb (
+    id INT NOT NULL AUTO_INCREMENT,
+    r  INT NOT NULL,
+    g  INT NOT NULL,
+    b  INT NOT NULL,
+    PRIMARY KEY (id)
+);
