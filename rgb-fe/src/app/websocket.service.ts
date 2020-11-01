@@ -8,7 +8,7 @@ import {BehaviorSubject} from 'rxjs';
   providedIn: 'root'
 })
 export class WebsocketService {
-  public readonly rgbColorChangeEvent: BehaviorSubject<RgbColor>;
+  private readonly rgbColorChangeEvent: BehaviorSubject<RgbColor>;
 
   private stompClient;
 
@@ -16,7 +16,7 @@ export class WebsocketService {
     this.rgbColorChangeEvent = new BehaviorSubject<RgbColor>({} as RgbColor);
   }
 
-  public connect(url): any {
+  public connect(url): BehaviorSubject<RgbColor> {
     if (!this.stompClient) {
       const socket = new SockJS(url);
       this.stompClient = Stomp.over(socket);
@@ -27,6 +27,7 @@ export class WebsocketService {
         });
       });
     }
+    return this.rgbColorChangeEvent;
   }
 
   public disconnect(): void {

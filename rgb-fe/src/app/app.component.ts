@@ -31,8 +31,9 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.resetBackgroundColor();
 
-    this.webSocketService.connect(environment.RGB_WEBSOCKET_URL);
-    this.webSocketService.rgbColorChangeEvent.subscribe(rgbColor => this.updateBackgroundColor(rgbColor));
+    this.webSocketService
+      .connect(environment.RGB_WEBSOCKET_URL)
+      .subscribe(rgbColor => this.updateBackgroundColor(rgbColor));
   }
 
   ngOnDestroy(): void {
