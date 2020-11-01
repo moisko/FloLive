@@ -20,12 +20,18 @@ export class WebsocketService {
     if (!this.stompClient) {
       const socket = new SockJS(url);
       this.stompClient = Stomp.over(socket);
-      this.stompClient.connect({}, (frame) => {
+      this.stompClient.connect({}, () => {
         this.stompClient.subscribe('/topic/rgbColor', (rgbColor) => {
           const rgbColorAsObject = JSON.parse(rgbColor.body);
           this.rgbColorChangeEvent.next({r: rgbColorAsObject.r, g: rgbColorAsObject.g, b: rgbColorAsObject.b} as RgbColor);
         });
       });
+    }
+  }
+
+  public disconnect(): void {
+    if (this.stompClient !== null) {
+      this.stompClient.disconnect();
     }
   }
 
